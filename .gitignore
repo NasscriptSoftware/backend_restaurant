@@ -5,7 +5,6 @@ __pycache__/
 
 # Ignore environment variables
 venv/
-*.env
 .venv
 
 # Ignore media files
