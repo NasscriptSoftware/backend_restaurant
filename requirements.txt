@@ -1,0 +1,14 @@
+django
+djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
+environs
+django-filter
+Pillow
+reportlab
+twilio
+django-unfold
+psycopg2-binary
+whitenoise
+gunicorn
+django-import-export

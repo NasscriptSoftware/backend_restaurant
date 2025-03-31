@@ -1,0 +1,22 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Ignore environment variables
+venv/
+*.env
+.venv
+
+# Ignore media files
+/media/
+
+# Ignore migration files
+migrations/
+
+# Ignore static files and test data
+/staticfiles/
+test_data.json
+
+db.sqlite3
+sample_data.txt

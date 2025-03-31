@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | City Tower</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #000 0%, #270e97 100%);
+            color: white;
+            position: relative;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .btn {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            background-color: #ffffff;
+            color: #270e97;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #270e97;
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="particles" id="particles"></div>
+        <div class="content">
+            <h1>Welcome to Restaurant Admin Dashboard</h1>
+            <button class="btn" onclick="redirectToAdmin()">Login</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToAdmin() {
+            window.location.href = "/admin/";
+        }
+
+        // Particle animation
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
+        }
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '5px';
+            particle.style.height = '5px';
+            particle.style.background = 'rgba(255, 255, 255, 0.5)';
+            particle.style.borderRadius = '50%';
+            
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            
+            particle.style.left = `${startX}px`;
+            particle.style.top = `${startY}px`;
+            
+            particlesContainer.appendChild(particle);
+            
+            animateParticle(particle);
+        }
+
+        function animateParticle(particle) {
+            const duration = 5000 + Math.random() * 5000;
+            const endX = Math.random() * window.innerWidth;
+            const endY = Math.random() * window.innerHeight;
+            
+            particle.animate([
+                { transform: 'translate(0, 0)' },
+                { transform: `translate(${endX - parseFloat(particle.style.left)}px, ${endY - parseFloat(particle.style.top)}px)` }
+            ], {
+                duration: duration,
+                easing: 'linear',
+                iterations: Infinity
+            });
+        }
+    </script>
+</body>
+</html>
